@@ -2,7 +2,7 @@
 
 演示地址：
 
-   https://lab.caitongbo.com/smartcampus/
+   http://118.89.226.128:8080/smartcampus/
     
    | 类型 | 账号 | 密码 |
    |  :-: |  :-: |  :-: | 

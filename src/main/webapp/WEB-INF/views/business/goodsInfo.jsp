@@ -58,10 +58,9 @@
                 <th style="text-align: center;">商品条形码</th>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品图片</th>&ndash;%&gt;--%>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品缩略图</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品描述</th>&ndash;%&gt;--%>
+                <th style="text-align: center;">商品描述</th>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品详情</th>&ndash;%&gt;--%>
                 <th style="text-align: center;">商品状态</th>
-                <th style="。text-align: center;">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -74,19 +73,11 @@
                     <td title=${goods.gVid}>${goods.gVid}</td>
                         <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
-                        <%--<td title=${goods.gLabel}>${goods.gLabel}</td>--%>
+                        <td title=${goods.gLabel}>${goods.gLabel}</td>
                         <%--<td title=${goods.gDetails}>${goods.gDetails}</td>--%>
                     <td><c:if test="${goods.gState=='1'}">已上架</c:if>
                         <c:if test="${goods.gState=='0'}">已下架</c:if>
                     <c:if test="${goods.gState=='-1'}">缺货</c:if></td>
-
-                    <td>
-                        <a href="#" onclick="return edit(${goods.id})" style="text-decoration: none;">
-                            <button type="button" class="btn btn-info"
-                                    data-toggle="button"> 查看更多
-                            </button>                        </a>
-                        </a>
-                    </td>
                 </tr>
             </c:forEach>
             </tbody>
