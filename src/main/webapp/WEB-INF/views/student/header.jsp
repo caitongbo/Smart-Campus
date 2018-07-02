@@ -16,12 +16,8 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="<%=basePath%>/student" class="navbar-brand">智慧校园</a>
+            <a href="#" class="navbar-brand">智慧校园</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-gbtag" aria-expanded="false">
-                <span class="sr-only">点我啊</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </button>
         </div>
 

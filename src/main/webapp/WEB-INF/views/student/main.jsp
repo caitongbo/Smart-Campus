@@ -31,7 +31,7 @@
 <br>
 <br>
 <div class="text" style=" text-align:center;" margin:0 auto;>
-        <font color="gray" size="20">Hi，${message}同学</font>
+            <font color="gray" size="20">Hi，${message}同学</font>
 </div>
 </body>
 </html>

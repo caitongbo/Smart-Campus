@@ -75,9 +75,4 @@ public class GoodsController {
 //        return modelMap;
 //    }
 
-    @RequestMapping(value = "")
-    public String welcome(){
-        return "business/welcome";
-    }
-
 }
