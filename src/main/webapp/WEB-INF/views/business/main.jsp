@@ -12,9 +12,15 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
 <html>
-<link rel="stylesheet" href="<%=basePath%>/css/bootstrap.min.css"/>
 <head>
     <title>主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 <!-- 导航栏 -->

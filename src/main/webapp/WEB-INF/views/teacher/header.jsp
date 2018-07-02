@@ -34,8 +34,8 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">校园一卡通<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/card/cardList">所有列表</a></li>
-                        <li><a href="/card/unavailable">不可用列表</a></li>
+                        <li><a href="${pageContext.request.contextPath}/card/cardList">所有列表</a></li>
+                        <li><a href="${pageContext.request.contextPath}/card/unavailable">不可用列表</a></li>
                     </ul>
                 </li>
             </ul>

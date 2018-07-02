@@ -16,7 +16,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="<%=basePath%>/teacher" class="navbar-brand">智慧校园</a>
+            <a href="#" class="navbar-brand">智慧校园</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-gbtag" aria-expanded="false">
                 <span class="sr-only">点我啊</span>
                 <span class="icon-bar"></span>
@@ -34,8 +34,8 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">校园一卡通<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/card/cardList">所有列表</a></li>
-                        <li><a href="/card/unavailable">不可用列表</a></li>
+                        <li><a href="${pageContext.request.contextPath}/card/cardList">所有列表</a></li>
+                        <li><a href="${pageContext.request.contextPath}/card/unavailable">不可用列表</a></li>
                     </ul>
                 </li>
             </ul>

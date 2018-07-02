@@ -16,9 +16,12 @@
 <head>
     <title>主页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +34,7 @@
 <br>
 <br>
 <div class="text" style=" text-align:center;" margin:0 auto;>
-        <font color="gray" size="20">Hi，${message}同学</font>
+            <font color="gray" size="20">Hi，${message}同学</font>
 </div>
 </body>
 </html>

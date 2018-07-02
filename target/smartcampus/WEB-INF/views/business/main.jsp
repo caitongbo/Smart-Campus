@@ -12,7 +12,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
 <html>
-<link rel="stylesheet" href="<%=basePath%>/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <head>
     <title>主页</title>
 </head>
