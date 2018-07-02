@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartcampus.dao.AuthorityMapper" >
+  <resultMap id="BaseResultMap" type="com.smartcampus.entity.Authority" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="au_name" property="auName" jdbcType="VARCHAR" />
+    <result column="au_details" property="auDetails" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.smartcampus.entity.Authority" >
+    insert into authority (id, au_name, au_details
+      )
+    values (#{id,jdbcType=INTEGER}, #{auName,jdbcType=VARCHAR}, #{auDetails,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.smartcampus.entity.Authority" >
+    insert into authority
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="auName != null" >
+        au_name,
+      </if>
+      <if test="auDetails != null" >
+        au_details,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="auName != null" >
+        #{auName,jdbcType=VARCHAR},
+      </if>
+      <if test="auDetails != null" >
+        #{auDetails,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
