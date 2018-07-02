@@ -2,13 +2,27 @@
 
 演示地址：
 
-   http://118.89.226.128:8080/smartcampus
+   https://lab.caitongbo.com/smartcampus/
     
-   | 账号 | 密码 | 
-   | :-: | :-:| 
-   | 1 | 1 | 
-   | 2 | 3 | 
-   | 3 | 3 |
+   | 类型 | 账号 | 密码 |
+   |  :-: |  :-: |  :-: | 
+   | 学生| s1 | s1 |
+   | 学生| s2 | s2 |
+   | 教师| t1 | t1 | 
+   | 教师| t2 | t2 | 
+   | 商家| b1 | b1 |
+   | 商家| b2 | b2 |
+
+预览操作：
+
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/login.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/s1.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/s2.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/t1.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/t2.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/b1.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/b2.png)
+![](https://github.com/caitongbo/smartcampus2/blob/master/src/main/webapp/images/b3.png)
 
 1.开发环境及工具
 
