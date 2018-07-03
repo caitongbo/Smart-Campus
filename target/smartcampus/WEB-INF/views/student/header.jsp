@@ -16,7 +16,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-pencil">智慧校园</span> </a>
+            <a href="#" class="navbar-brand">智慧校园</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-gbtag" aria-expanded="false">
             </button>
         </div>
@@ -24,13 +24,11 @@
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/user/userS">我的账号</a></li>
-                <%--<li><a data-toggle="modal" data-target="#addModal">我的一卡通</a></li>--%>
                 <li><a href="${pageContext.request.contextPath}/card/myCardS">我的一卡通</a></li>
-
                 <li><a href="${pageContext.request.contextPath}/orders/studentOrder">我的订单</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<%=basePath%>"  onclick="return foo();"><span class="glyphicon glyphicon-log-out"></span>退出系统</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/login"  onclick="return foo();">退出系统</a></li>
             </ul>
             </li>
             </ul>

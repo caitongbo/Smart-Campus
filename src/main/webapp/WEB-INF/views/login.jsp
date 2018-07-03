@@ -1,9 +1,6 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-%>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,7 +15,7 @@
 <h2 class="text-center">智慧校园</h2>
 
 <hr/>
-<form action="<%=basePath%>/user/login.do" method="post" class="form-inline text-center">
+<form action="${pageContext.request.contextPath}/user/login.do" method="post" class="form-inline text-center">
     <label>账号:</label>
     <input type="text" class="form-control" name="id"/>
     <br/>

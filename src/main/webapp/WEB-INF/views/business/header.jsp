@@ -26,20 +26,20 @@
 
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
-                <li><a href="<%=basePath%>/user/userB">我的账号</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/userB">我的账号</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的商品<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="<%=basePath%>/goods/goodsInfo">所有商品</a></li>
-                    <li><a href="<%=basePath%>/goods/goodsHasUp">已上架商品</a></li>
-                        <li><a href="<%=basePath%>/goods/goodsHasDown">已下架商品</a></li>
-                        <li><a href="<%=basePath%>/goods/goodsHasOver">暂时缺货商品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goods/goodsInfo">所有商品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goods/goodsHasUp">已上架商品</a></li>
+                        <li><a href="${pageContext.request.contextPath}/goods/goodsHasDown">已下架商品</a></li>
+                        <li><a href="${pageContext.request.contextPath}/goods/goodsHasOver">暂时缺货商品</a></li>
                     </ul>
                 </li>
-                    <li><a href="<%=basePath%>/shop/shopInfo">关于店铺</a></li>
+                    <li><a href="${pageContext.request.contextPath}/shop/shopInfo">关于店铺</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<%=basePath%>"  onclick="return foo();"><span class="glyphicon glyphicon-log-out"></span>退出系统</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/login"   onclick="return foo();">退出系统</a></li>
                     </ul>
                 </li>
             </ul>

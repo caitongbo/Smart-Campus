@@ -24,13 +24,11 @@
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/user/userS">我的账号</a></li>
-                <%--<li><a data-toggle="modal" data-target="#addModal">我的一卡通</a></li>--%>
                 <li><a href="${pageContext.request.contextPath}/card/myCardS">我的一卡通</a></li>
-
                 <li><a href="${pageContext.request.contextPath}/orders/studentOrder">我的订单</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<%=basePath%>"  onclick="return foo();"><span class="glyphicon glyphicon-log-out"></span>退出系统</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/login"  onclick="return foo();">退出系统</a></li>
             </ul>
             </li>
             </ul>

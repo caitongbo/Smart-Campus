@@ -8,13 +8,10 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-%>
 <html>
 <head>
     <title>暂时缺货商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
 
@@ -52,12 +49,12 @@
             <tr>
                 <th style="text-align: center;">商品编号</th>
                 <th style="text-align: center;">商品名称</th>
-                <%--<th style="text-align: center;">商品价格</th>--%>
-                <%--<th style="text-align: center;">客户来源</th>--%>
+                <th style="text-align: center;">商品价格</th>
+                <th style="text-align: center;">客户来源</th>
                 <th style="text-align: center;">商品条形码</th>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品图片</th>&ndash;%&gt;--%>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品缩略图</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品描述</th>&ndash;%&gt;--%>
+                <th style="text-align: center;">商品描述</th>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品详情</th>&ndash;%&gt;--%>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品状态</th>&ndash;%&gt;--%>
             </tr>
@@ -67,12 +64,12 @@
                 <tr class="text-center">
                     <td title=${goods.id}>${goods.id}</td>
                     <td title=${goods.gName}>${goods.gName}</td>
-                        <%--<td title=${goods.gprice}>${goods.gPice}</td>--%>
-                        <%--<td title=${goods.gLy}>${goods.gLy}</td>--%>
+                        <td title=${goods.gPrice}>${goods.gPrice}</td>
+                        <td title=${goods.gLy}>${goods.gLy}</td>
                     <td title=${goods.gVid}>${goods.gVid}</td>
                         <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
-                        <%--<td title=${goods.gLabel}>${goods.gLabel}</td>--%>
+                        <td title=${goods.gLabel}>${goods.gLabel}</td>
                         <%--<td title=${goods.gDetails}>${goods.gDetails}</td>--%>
                         <%--<td title=${goods.gState}>${goods.gState}</td>--%>
                 </tr>
