@@ -51,7 +51,7 @@
                 <th style="text-align: center;">账号</th>
                 <th style="text-align: center;">密码</th>
                 <th style="text-align: center;">状态</th>
-                <th style="text-align: center;">多账号</th>
+                <th style="text-align: center;">账号类型</th>
                 <th style="text-align: center;">权限</th>
                 <th style="text-align: center;">类型</th>
             </tr>

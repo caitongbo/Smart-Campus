@@ -21,6 +21,7 @@
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
     <script>
+
         $(document).ready( function () {
             $('#user').DataTable({
                     "aLengthMenu":false,
@@ -50,12 +51,13 @@
                 <th style="text-align: center;">账号</th>
                 <th style="text-align: center;">密码</th>
                 <th style="text-align: center;">状态</th>
-                <th style="text-align: center;">多账号</th>
+                <th style="text-align: center;">账号类型</th>
                 <th style="text-align: center;">权限</th>
                 <th style="text-align: center;">类型</th>
             </tr>
             </thead>
             <tbody>
+            <tr class="text-center">
             <tr class="text-center">
                 <td >${user.uuid}</td>
                 <td >${user.id}</td>
@@ -71,12 +73,12 @@
                 </td>
                 <td >
                     <c:if test="${user.authId=='0'}">学生</c:if>
-                    <c:if test="${user.authId=='1'}">老师</c:if>
+                    <c:if test="${user.authId=='1'}">教师</c:if>
                     <c:if test="${user.authId=='-1'}">商家</c:if>
                 </td>
                 <td >
                     <c:if test="${user.shopType=='0'}">学生</c:if>
-                    <c:if test="${user.shopType=='1'}">老师</c:if>
+                    <c:if test="${user.shopType=='1'}">教师</c:if>
                     <c:if test="${user.shopType=='-1'}">商家</c:if>
                 </td>
             </tr>

@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="smartcampus" />
-        <module name="smartcampus2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="smartcampus" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

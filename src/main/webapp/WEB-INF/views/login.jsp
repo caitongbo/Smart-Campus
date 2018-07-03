@@ -6,26 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet">
+
 
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <title>首页</title>
 <html>
 <body>
-<h2 class="text-center">智慧校园</h2>
-
-<hr/>
-<form action="${pageContext.request.contextPath}/user/login.do" method="post" class="form-inline text-center">
-    <label>账号:</label>
-    <input type="text" class="form-control" name="id"/>
-    <br/>
-    <br/>
-    <label>密码:</label>
-    <input type="password" class="form-control" name="password"/>
-    <br/>
-    <br/>
-    <input type="submit" value="登录" class="btn btn-default"/>
-</form>
+<div id="Content">
+    <div id="Catalog">
+        <div class="container">
+            <form class="form-signin" action='${pageContext.request.contextPath}/user/login' method="POST">
+                <h2 class="form-signin-heading">请登录</h2>
+                <label for="id" class="sr-only">用户名</label>
+                <input type="text" id="id" name='id' class="form-control" placeholder="用户名" required autofocus>
+                <label for="password" class="sr-only">密码</label>
+                <input type="password" id="password" name='password' class="form-control" placeholder="密码" required>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="remember_me" name="remember-me"> 记住我
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                <%--<div class="register">新用户? <a href="${pageContext.request.contextPath}/user/register">立即注册!</a></div>--%>
+            </form>
+        </div> <!-- /container -->
+    </div>
+</div>
 <center><h10>${message}</h10></center>
 </body>
 </html>

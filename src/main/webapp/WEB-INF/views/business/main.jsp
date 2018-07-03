@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/starter.css" rel="stylesheet">
 
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -22,13 +23,10 @@
 <body>
 <!-- 导航栏 -->
 <%@ include file="header.jsp"%>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="text" style=" text-align:center;" margin:0 auto;>
-    <font color="gray" size="20">Hi，${message}店主</font>
+<div class="container">
+    <div class="starter-template">
+        <h1>${message}店长，你好</h1>
+    </div>
 </div>
 </body>
 </html>

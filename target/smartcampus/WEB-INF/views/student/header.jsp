@@ -13,11 +13,15 @@
     return false;
 }
 </script>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="#" class="navbar-brand">智慧校园</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-gbtag" aria-expanded="false">
+                <span class="sr-only">点我啊</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
         </div>
 
