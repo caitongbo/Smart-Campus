@@ -21,12 +21,12 @@
 
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/goods/goodsAllListB">商品管理</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/shop/shopInfo">我的店铺</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品列表<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">状态列表<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="${pageContext.request.contextPath}/goods/goodsAllListB">所有商品</a></li>
                     <li><a href="${pageContext.request.contextPath}/goods/goodsHasUp">已上架商品</a></li>
                         <li><a href="${pageContext.request.contextPath}/goods/goodsHasDown">已下架商品</a></li>
                         <li><a href="${pageContext.request.contextPath}/goods/goodsHasOver">已缺货商品</a></li>
