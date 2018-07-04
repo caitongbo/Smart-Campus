@@ -35,7 +35,7 @@
                 <li><a href="#" onclick="javascript:window.location.reload()">刷新</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" data-target="#logoutModal">退出系统</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#logoutModal">退出系统</a></li>
                     </ul>
                 </li>
             </ul>
