@@ -20,7 +20,6 @@
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
     <script>
-
         $(document).ready( function () {
             $('#goods').DataTable({
                     "aLengthMenu":false,
@@ -38,46 +37,44 @@
         }
     </style>
 </head>
-<body>
-<!-- 导航栏 -->
-<%@ include file="header.jsp"%>
-<br/>
-<div class="container">
-    <div class="table-responsive">
-        <table class="table" id="goods">
-            <thead>
-            <tr>
-                <th style="text-align: center;">商品编号</th>
-                <th style="text-align: center;">商品名称</th>
-                <th style="text-align: center;">商品价格</th>
-                <th style="text-align: center;">客户来源</th>
-                <th style="text-align: center;">商品条形码</th>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品图片</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品缩略图</th>&ndash;%&gt;--%>
-                <th style="text-align: center;">商品描述</th>
-                <th style="text-align: center;">商品详情</th>
-                <th style="text-align: center;">商品状态</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${requestScope.goodses}" var="goods">
-                <tr class="text-center">
-                    <td title=${goods.id}>${goods.id}</td>
-                    <td title=${goods.gName}>${goods.gName}</td>
-                        <td title=${goods.gPrice}>${goods.gPrice}</td>
-                        <td title=${goods.gLy}>${goods.gLy}</td>
-                    <td title=${goods.gVid}>${goods.gVid}</td>
-                        <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
-                        <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
-                        <td title=${goods.gLabel}>${goods.gLabel}</td>
-                        <td title=${goods.gDetails}>${goods.gDetails}</td>
-                        <td title=${goods.gState}>${goods.gState}</td>
+    <body>
+    <!-- 导航栏 -->
+    <%@ include file="header.jsp"%>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table" id="goods">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">商品编号</th>
+                    <th style="text-align: center;">商品名称</th>
+                    <th style="text-align: center;">商品价格</th>
+                    <th style="text-align: center;">客户来源</th>
+                    <th style="text-align: center;">商品条形码</th>
+                    <%--&lt;%&ndash;<th style="text-align: center;">商品图片</th>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<th style="text-align: center;">商品缩略图</th>&ndash;%&gt;--%>
+                    <th style="text-align: center;">商品描述</th>
+                    <th style="text-align: center;">商品详情</th>
+                    <th style="text-align: center;">商品状态</th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <c:forEach items="${requestScope.goodses}" var="goods">
+                    <tr class="text-center">
+                        <td title=${goods.id}>${goods.id}</td>
+                        <td title=${goods.gName}>${goods.gName}</td>
+                            <td title=${goods.gPrice}>${goods.gPrice}</td>
+                            <td title=${goods.gLy}>${goods.gLy}</td>
+                        <td title=${goods.gVid}>${goods.gVid}</td>
+                            <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
+                            <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
+                            <td title=${goods.gLabel}>${goods.gLabel}</td>
+                            <td title=${goods.gDetails}>${goods.gDetails}</td>
+                            <td title=${goods.gState}>${goods.gState}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-</body>
-
+    </body>
 </html>

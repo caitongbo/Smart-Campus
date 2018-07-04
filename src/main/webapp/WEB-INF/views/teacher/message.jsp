@@ -32,8 +32,6 @@
                 data-toggle="button">返回
         </button>
     </div>
-
 </div>
-
 </body>
 </html>

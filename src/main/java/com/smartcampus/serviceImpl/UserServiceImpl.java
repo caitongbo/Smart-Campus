@@ -20,5 +20,4 @@ public class UserServiceImpl implements UserService {
         return userMapper.login(id);
     }
 
-
 }

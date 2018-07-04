@@ -6,17 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script> function foo() {
-    if (confirm("确认退出吗？")) {
-        return true;
-    }
-    return false;
-}
-</script>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">智慧校园</a>
+            <a href="${pageContext.request.contextPath}/user/userT" class="navbar-brand">智慧校园</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-gbtag" aria-expanded="false">
                 <span class="sr-only">点我啊</span>
                 <span class="icon-bar"></span>
@@ -29,8 +23,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/goods/goodsAllListT">商品列表</a></li>
                 <li><a href="${pageContext.request.contextPath}/orders/teacherOrder">我的订单</a></li>
-                <li><a href="${pageContext.request.contextPath}/user/userT" data-toggle="modal" data-target="#myModal">我的账号</a></li>
-                <li><a  href="${pageContext.request.contextPath}/card/myCardT">一卡通</a></li>
+                <li><a data-toggle="modal" data-target="#myModal">我的账号</a></li>
+                <li><a href="${pageContext.request.contextPath}/card/myCardT">一卡通</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">校园一卡通<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -38,23 +32,22 @@
                         <li><a href="${pageContext.request.contextPath}/card/unavailable">不可用列表</a></li>
                     </ul>
                 </li>
-
                 <li><a href="#" onclick="javascript:window.location.reload()">刷新</a></li>
-
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/user/login"   onclick="return foo();">退出系统</a></li>
+                <li><a data-toggle="modal" data-target="#logoutModal">退出系统</a></li>
             </ul>
             </li>
             </ul>
         </div>
     </div>
 </nav>
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;
                         <span aria-hidden="true"></span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">我的账号</h4>
@@ -82,8 +75,6 @@
                     <div class="form-group form-inline">
                         类型：<input type="text" name="shopType" class="form-control" value="${user.shopType}">
                     </div>
-                    <!-- end-->
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info"  data-dismiss="modal">确定</button>
@@ -92,3 +83,26 @@
             </div>
         </div>
     </div>
+
+<!-- 退出的模态框 -->
+<div class="modal fade" id="logoutModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 模糊框头部 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h4 class="modal-title">嗯？？你要干嘛？！！！</h4>
+            </div>
+            <!-- 模糊框主体 -->
+            <div class="modal-body">
+                <strong>确定要吗？噢不对是要推出吗？！！</strong>
+            </div>
+            <!-- 模糊框底部 -->
+            <div class="modal-footer">
+                <a href="${pageContext.request.contextPath}/user/logout"><button type="button" class="delSure btn btn-info">稍后再来</button></a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">行吧我再陪你玩会</button>
+            </div>
+        </div>
+    </div>
+</div>

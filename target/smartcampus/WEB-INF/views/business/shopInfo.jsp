@@ -27,8 +27,6 @@
 <body>
 <!-- 导航栏 -->
 <%@ include file="header.jsp"%>
-
-
             <div class="container">
                 <div class="starter-template">
                     <p class="lead"> 店铺名称：${shopNameAndAddr.shopName}.

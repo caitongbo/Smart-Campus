@@ -29,9 +29,6 @@ public class UserController {
     public String login(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "password", required = false) String password, HttpSession httpSession, Model model) {
         User user = userService.login(id);
         if (user != null) {
-            System.out.println(user.getId());
-            System.out.println(user.getPassword());
-            System.out.println(user.getShopType());
             if (user.getPassword().equals(password)) {
                 //登录成功
                 httpSession.setAttribute("user", user);
@@ -52,17 +49,26 @@ public class UserController {
         }
     }
 
-    //返回个人账户信息
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.setAttribute("","");
+        return "redirect:login";
+    }
+
+
+    //返回主页
     @RequestMapping("/userS")
-    public void userS() {
+    public String userS() {
+        return "student/main";
     }
 
     @RequestMapping("/userT")
-    public void userT() {
-
+    public String userT() {
+        return "teacher/main";
     }
 
     @RequestMapping("/userB")
-    public void userB() {
+    public String userB() {
+        return "business/main";
     }
 }

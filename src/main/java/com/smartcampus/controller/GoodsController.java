@@ -53,9 +53,6 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value="/findById")
     public Goods findById(@RequestBody Goods goods,Model model){
-//        httpSession.setAttribute("GoodsId",goods.getId());
-//        System.out.println(goods.getId());
-//        System.out.println((String) httpSession.getAttribute("GoodId"));
         Goods goods_info = goodsService.getById(goods.getId());
         model.addAttribute("GoodsId",goods.getId());
         if(goods_info != null){

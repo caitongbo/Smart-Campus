@@ -1,6 +1,7 @@
 package com.smartcampus.dao;
 
 import com.smartcampus.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 public interface UserMapper {

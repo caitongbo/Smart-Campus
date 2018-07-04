@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/starter.css" rel="stylesheet">
 
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -24,7 +25,7 @@
         $(document).ready( function () {
             $('#goods').DataTable({
                     "aLengthMenu":false,
-                    "searching":false,//禁用搜索（搜索框）
+                    "searching":true,//禁用搜索（搜索框）
                     "paging":false,
                     "info":false
                 }
@@ -70,13 +71,11 @@
                         <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
                     <td title=${goods.gLabel}>${goods.gLabel}</td>
-
                     <td>
                         <a href="#" onclick="return trash(${goods.id})" style="text-decoration: none;" data-toggle="modal" data-target="#trashModal">
-                            <button type="button" class="btn btn-info" data-toggle="button"> 下单
+                            <button type="button" class="btn btn-info" data-toggle="button"> 立即获得
                             </button>
                         </a>
-
                     </td>
 
                 </tr>
@@ -86,70 +85,6 @@
     </div>
 </div>
 
-<!-- 编辑的模态框 -->
-<form method="post" action="${pageContext.request.contextPath}/orders/produce" id="form_buy">
-    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">购买确认页面</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group form-inline">
-                        <label>商品名称：</label>
-                        <input type="text"  class="form-control" id="gName"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品价格：</label>
-                        <input type="text"  class="form-control" id="gPrice"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品来源：</label>
-                        <input type="text" class="form-control" id="gLy"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>条形码：</label>
-                        <input type="text"  class="form-control" id="gVid"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品图片：</label>
-                        <input type="text" class="form-control" id="gImg"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品缩略图：</label>
-                        <input type="text"  class="form-control" id="gSImg"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品描述：</label>
-                        <input type="text" class="form-control" id="gLabel"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品详情：</label>
-                        <input type="text"  class="form-control" id="gDetails"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商品状态：</label>
-                        <input type="text"class="form-control" id="gState"/>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label>商家ID：</label>
-                        <input type="text"  class="form-control" id="sIUuid"/>
-                    </div>
-
-                    <%--<input type="text" name="">--%>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="buySure btn btn-info" data-dismiss="modal">确定</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
 <!-- 下单的模态框 -->
 <div class="modal fade" id="trashModal">
     <div class="modal-dialog">
@@ -158,11 +93,11 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
                 </button>
-                <h4 class="modal-title">提醒</h4>
+                <h4 class="modal-title">提示</h4>
             </div>
             <!-- 模糊框主体 -->
             <div class="modal-body">
-                <strong>你确定要下单吗？</strong>
+                <strong>确定要购买这个商品吗？</strong>
             </div>
             <!-- 模糊框底部 -->
             <div class="modal-footer">
@@ -178,7 +113,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+<%--下单的方法--%>
     function trash(id){
         if(!id){
             alert("error");
@@ -194,7 +129,7 @@
             });
         }
     }
-    // 下单的方法
+    //查询显示
     function buy(id){
         if(!id){
             alert("error");
