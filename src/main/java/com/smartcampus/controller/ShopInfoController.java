@@ -25,7 +25,9 @@ public class ShopInfoController {
     public String shopInfo(@RequestParam(value = "id",required = false)String id, HttpSession httpSession, Model model){
         id = (String) httpSession.getAttribute("UserId");
         ShopInfo shopInfo = shopInfoService.getNameAndAddrById(id); //调用业务层方法
-        model.addAttribute("shopInfo",shopInfo);//把从数据库取到的数据放入到model中
+        httpSession.setAttribute("ShopInfo",shopInfo);
+        model.addAttribute("shopNameAndAddr",shopInfo);//把从数据库取到的数据放入到model中
+//        System.out.println(shopInfo);
         return "business/shopInfo";
     }
 

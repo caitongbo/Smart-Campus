@@ -8,20 +8,17 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-%>
+
 <html>
 <head>
-    <title>商品列表页面</title>
+    <title>我的订单</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
     <script>
 
@@ -59,6 +56,7 @@
             </tr>
             </thead>
             <tbody>
+            <c:forEach items="${requestScope.Orders}" var="Orders">
             <tr class="text-center">
                 <td title=${Orders.gName}>${Orders.gName}</td>
                 <td title=${Orders.gPrice}>${Orders.gPrice}</td>
@@ -66,6 +64,7 @@
                 <td title=${Orders.gVid}>${Orders.gVid}</td>
                 <td title=${Orders.gLabel}>${Orders.gLabel}</td>
             </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

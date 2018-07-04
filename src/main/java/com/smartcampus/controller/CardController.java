@@ -40,6 +40,7 @@ public class CardController {
     public String myCardS(@RequestParam(value = "id",required = false)String id, HttpSession httpSession, Model model){
         id = (String) httpSession.getAttribute("UserId");
         Card card=cardService.getById(id);
+        httpSession.setAttribute("Card",card);
         model.addAttribute("Card",card);
         return "student/myCard";
     }
@@ -48,6 +49,7 @@ public class CardController {
     public String myCardT(@RequestParam(value = "id",required = false)String id, HttpSession httpSession, Model model){
         id = (String) httpSession.getAttribute("UserId");
         Card card=cardService.getById(id);
+        httpSession.setAttribute("Card",card);
         model.addAttribute("Card",card);
         return "teacher/myCard";
     }

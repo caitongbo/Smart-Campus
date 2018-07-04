@@ -13,6 +13,13 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;
 
+    public List<Goods> getAll(){
+        return goodsMapper.findAll();
+    }
+
+    public Goods getById(Integer id){return goodsMapper.findById(id);}
+
+    public void getUp(Integer id,String up){ goodsMapper.setUp(id,up);}
     public List<Goods> getAllById(String id) {
         return goodsMapper.findAllById(id);
     }

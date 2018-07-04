@@ -7,75 +7,66 @@
 --%>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-%>
+
 <html>
 <head>
-    <title>商品列表页面</title>
+    <title>主页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-    <script>
-
-        $(document).ready( function () {
-            $('#card').DataTable({
-                    "aLengthMenu":false,
-                    "searching":false,//禁用搜索（搜索框）
-                    "paging":false,
-                    "info":false
-                }
-            );
-        } );
-    </script>
-    <style type="text/css">
-        table{
-            word-break:keep-all;/* 不换行 */
-            white-space:nowrap;/* 不换行 */
-        }
-    </style>
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 <!-- 导航栏 -->
 <%@ include file="header.jsp"%>
-<br/>
 <div class="container">
-    <div class="table-responsive">
-        <table class="table" id="Card">
-            <thead>
-            <tr>
-                <th style="text-align: center;">编号</th>
-                <th style="text-align: center;">条形码</th>
-                <th style="text-align: center;">余额</th>
-                <th style="text-align: center;">申请ID</th>
-                <th style="text-align: center;">权限</th>
-                <th style="text-align: center;">状态</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="text-center">
-                <td title=${Card.id}>${Card.id}</td>
-                <td title=${Card.cardVid}>${Card.cardVid}</td>
-                <td title=${Card.cardBalance}>${Card.cardBalance}</td>
-                <td title=${Card.sqId}>${Card.sqId}</td>
-                <td><c:if test="${Card.authId=='0'}">学生</c:if>
-                    <c:if test="${Card.authId=='1'}">教师</c:if>
-                </td>
-                <td><c:if test="${Card.state=='1'}"><font color="green">可用</font></c:if>
-                    <c:if test="${Card.state=='0'}"><font color="red">不可用</font></c:if></td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="starter-template">
+        <button   class="btn  btn-default btn-lg"  data-toggle="modal" data-target="#myCardModal"
+        >点击查看
+        </button>
+    </div>
+
+    <div class="modal fade" id="myCardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                    <h4 class="modal-title" >我的一卡通</h4>
+                </div>
+                <div class="modal-body">
+                    <!--数据项-->
+                    <div class="form-group form-inline">
+                        编号：<input type="text" class="form-control" value="${Card.id}">
+                    </div>
+                    <div class="form-group form-inline">
+                        条形码：<input type="text" class="form-control" value="${Card.cardVid}">
+                    </div>
+                    <div class="form-group form-inline">
+                        余额：<input type="text" class="form-control" value="${Card.cardBalance}">
+                    </div>
+                    <div class="form-group form-inline">
+                        申请ID：<input type="text" class="form-control" value="${Card.sqId}">
+                    </div>
+                    <div class="form-group form-inline">
+                        权限：<input type="text" class="form-control" value="${Card.authId}">
+                    </div>
+                    <div class="form-group form-inline">
+                        状态：<input type="text" class="form-control" value="${Card.state}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class=" btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
 </html>
-
 

@@ -8,19 +8,16 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-%>
 <html>
 <head>
-    <title>商品列表页面</title>
+    <title>已下架商品</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
     <script>
 
         $(document).ready( function () {
@@ -51,14 +48,14 @@
             <tr>
                 <th style="text-align: center;">商品编号</th>
                 <th style="text-align: center;">商品名称</th>
-                <%--<th style="text-align: center;">商品价格</th>--%>
-                <%--<th style="text-align: center;">客户来源</th>--%>
+                <th style="text-align: center;">商品价格</th>
+                <th style="text-align: center;">客户来源</th>
                 <th style="text-align: center;">商品条形码</th>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品图片</th>&ndash;%&gt;--%>
                 <%--&lt;%&ndash;<th style="text-align: center;">商品缩略图</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品描述</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品详情</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th style="text-align: center;">商品状态</th>&ndash;%&gt;--%>
+                <th style="text-align: center;">商品描述</th>
+                <th style="text-align: center;">商品详情</th>
+                <th style="text-align: center;">商品状态</th>
             </tr>
             </thead>
             <tbody>
@@ -66,14 +63,14 @@
                 <tr class="text-center">
                     <td title=${goods.id}>${goods.id}</td>
                     <td title=${goods.gName}>${goods.gName}</td>
-                        <%--<td title=${goods.gprice}>${goods.gPice}</td>--%>
-                        <%--<td title=${goods.gLy}>${goods.gLy}</td>--%>
+                        <td title=${goods.gPrice}>${goods.gPrice}</td>
+                        <td title=${goods.gLy}>${goods.gLy}</td>
                     <td title=${goods.gVid}>${goods.gVid}</td>
                         <%--<td title=${goods.gImg}>${goods.gImg}</td>--%>
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
-                        <%--<td title=${goods.gLabel}>${goods.gLabel}</td>--%>
-                        <%--<td title=${goods.gDetails}>${goods.gDetails}</td>--%>
-                        <%--<td title=${goods.gState}>${goods.gState}</td>--%>
+                        <td title=${goods.gLabel}>${goods.gLabel}</td>
+                        <td title=${goods.gDetails}>${goods.gDetails}</td>
+                        <td title=${goods.gState}>${goods.gState}</td>
                 </tr>
             </c:forEach>
             </tbody>

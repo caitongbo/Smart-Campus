@@ -26,7 +26,7 @@ public class UserController {
      * 用户登录
      */
     @RequestMapping(value = "/login")
-    public String login(@RequestParam(value="id",required=false)  String id, @RequestParam(value="password",required=false)  String password, HttpSession httpSession, Model model) {
+    public String login(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "password", required = false) String password, HttpSession httpSession, Model model) {
         User user = userService.login(id);
         if (user != null) {
             System.out.println(user.getId());
@@ -34,14 +34,13 @@ public class UserController {
             System.out.println(user.getShopType());
             if (user.getPassword().equals(password)) {
                 //登录成功
-                httpSession.setAttribute("user",user);
-                httpSession.setAttribute("UserId",user.getId());
-                httpSession.setAttribute("UserUuid",user.getUuid());
-                model.addAttribute("message",user.getId());
-                if ("0".equals(user.getShopType()))
-                {
-                    return "student/main";}
-                else  if ("-1".equals(user.getShopType()))   return "business/main";
+                httpSession.setAttribute("user", user);
+                httpSession.setAttribute("UserId", user.getId());
+                httpSession.setAttribute("UserUuid", user.getUuid());
+                model.addAttribute("message", user.getId());
+                if ("0".equals(user.getShopType())) {
+                    return "student/main";
+                } else if ("-1".equals(user.getShopType())) return "business/main";
                 else return "teacher/main";
             } else {
                 model.addAttribute("message", "登录失败");
@@ -55,17 +54,15 @@ public class UserController {
 
     //返回个人账户信息
     @RequestMapping("/userS")
-    public String userS(){
-        return "student/myInformation";
+    public void userS() {
     }
 
     @RequestMapping("/userT")
-    public String userT(){
-        return "teacher/myInformation";
+    public void userT() {
+
     }
 
     @RequestMapping("/userB")
-    public String userB(){
-        return "business/myInformation";
+    public void userB() {
     }
 }

@@ -9,5 +9,8 @@
         <module name="smartcampus" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="smartcampus" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

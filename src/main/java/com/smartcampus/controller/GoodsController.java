@@ -1,17 +1,16 @@
 package com.smartcampus.controller;
 
-import com.smartcampus.dao.UserMapper;
 import com.smartcampus.entity.Goods;
 import com.smartcampus.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 商品管理的Controller层
@@ -28,15 +27,67 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    //所有商品信息
-    @RequestMapping(value="/goodsInfo")
+    //学生所有商品信息
+    @RequestMapping(value = "goodsAllListS")
+    public String goodsAllListS(Model model){
+        List<Goods> goods = goodsService.getAll();
+        model.addAttribute("goods",goods);
+        return "student/goodsList";
+    }
+    //教师所有商品信息
+    @RequestMapping(value = "goodsAllListT")
+    public String goodsAllListT(Model model){
+        List<Goods> goods = goodsService.getAll();
+        model.addAttribute("goods",goods);
+        return "teacher/goodsList";
+    }
+    //个人商家所有商品信息
+    @RequestMapping(value="/goodsAllListB")
     public String list(@RequestParam(value = "id",required = false)String id, HttpSession httpSession, Model model){
         id = (String) httpSession.getAttribute("UserId");
         List<Goods> goodses = goodsService.getAllById(id); //调用业务层方法
         model.addAttribute("goodses",goodses);//把从数据库取到的数据放入到model中
-    return "business/goodsInfo";
+    return "business/goodsList";
     }
-
+    //根据id查询商品
+    @ResponseBody
+    @RequestMapping(value="/findById")
+    public Goods findById(@RequestBody Goods goods,Model model){
+//        httpSession.setAttribute("GoodsId",goods.getId());
+//        System.out.println(goods.getId());
+//        System.out.println((String) httpSession.getAttribute("GoodId"));
+        Goods goods_info = goodsService.getById(goods.getId());
+        model.addAttribute("GoodsId",goods.getId());
+        if(goods_info != null){
+            return goods_info;
+        }else{
+            return null;
+        }
+    }
+    //上架
+    @RequestMapping("up")
+    public String up(@RequestParam int id,Model model){
+            Integer goodsId = Integer.valueOf(id);
+            goodsService.getUp(goodsId,"1");
+            model.addAttribute("message","上架完成");
+            return "business/message";
+    }
+    //下架
+    @RequestMapping("down")
+    public String down(@RequestParam int id,Model model){
+        Integer goodsId = Integer.valueOf(id);
+        goodsService.getUp(goodsId,"0");
+        model.addAttribute("message","下架完成");
+        return "business/message";
+    }
+    //缺货
+    @RequestMapping("lose")
+    public String lose(@RequestParam int id, Model model){
+        Integer goodsId = Integer.valueOf(id);
+        goodsService.getUp(goodsId,"-1");
+        model.addAttribute("message","缺货完成");
+        return "business/message";
+    }
     //已上架
     @RequestMapping(value="/goodsHasUp")
     public String goodsHasUp(@RequestParam(value = "id",required = false)String id, HttpSession httpSession, Model model){
@@ -74,10 +125,5 @@ public class GoodsController {
 //        modelMap.put("userlist",goodses);
 //        return modelMap;
 //    }
-
-    @RequestMapping(value = "")
-    public String welcome(){
-        return "business/welcome";
-    }
 
 }
