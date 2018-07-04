@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/goods/goodsAllListS">商品列表</a></li>
                 <li><a href="${pageContext.request.contextPath}/orders/studentOrder">我的订单</a></li>
-                <li><a data-toggle="modal" data-target="#myModal">我的账号</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/card/myCardS" >一卡通</a></li>
                 <li><a href="#" onclick="javascript:window.location.reload()">刷新</a></li>
             </ul>

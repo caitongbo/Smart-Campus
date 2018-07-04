@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/goods/goodsAllListT">商品列表</a></li>
                 <li><a href="${pageContext.request.contextPath}/orders/teacherOrder">我的订单</a></li>
-                <li><a data-toggle="modal" data-target="#myModal">我的账号</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/card/myCardT">一卡通</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">校园一卡通<span class="caret"></span></a>

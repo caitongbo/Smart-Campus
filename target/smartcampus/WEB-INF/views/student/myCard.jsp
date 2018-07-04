@@ -25,7 +25,7 @@
 <%@ include file="header.jsp"%>
 <div class="container">
     <div class="starter-template">
-        <button   class="btn  btn-default btn-lg"  data-toggle="modal" data-target="#myCardModal"
+        <button  class="btn  btn-default btn-lg"  data-toggle="modal" data-target="#myCardModal"
         >点击查看
         </button>
     </div>

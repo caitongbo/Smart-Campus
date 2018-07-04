@@ -21,7 +21,7 @@
 
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
-                <li><a data-toggle="modal" data-target="#myModal">我的账号</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/shop/shopInfo">我的店铺</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品列表<span class="caret"></span></a>
