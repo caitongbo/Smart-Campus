@@ -28,7 +28,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">一卡通<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="${pageContext.request.contextPath}/card/myCardT">我的一卡通</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#applyModal">申请</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#applyModal">申请新卡</a></li>
                         <li><a href="${pageContext.request.contextPath}/card/recordT">申请纪录</a></li>
                         <li><a href="${pageContext.request.contextPath}/card/cardList">一卡通管理列表</a></li>
                         <li><a href="${pageContext.request.contextPath}/card/unavailable">查看不可用列表</a></li>

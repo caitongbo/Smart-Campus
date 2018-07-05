@@ -11,12 +11,14 @@ public interface CardService {
 
     Card getById(String id);
 
-    void save(String uuid,String balance,String id);
+    void save(String uuid,String balance,String id,Integer authId);
 
     List<Card> getRecord(String id);
 
     void  getApprove(Integer id,String up);
 
     int delete(int id);
+
+    void update(String id,String balance);
 
 }

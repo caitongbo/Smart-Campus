@@ -11,7 +11,7 @@
  Target Server Version : 50722
  File Encoding         : 65001
 
- Date: 03/07/2018 05:01:31
+ Date: 05/07/2018 13:04:02
 */
 
 SET NAMES utf8mb4;
@@ -26,14 +26,14 @@ CREATE TABLE `authority`  (
   `au_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限名，比如老师、学生、商户',
   `au_details` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限职能描述',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of authority
 -- ----------------------------
 INSERT INTO `authority` VALUES (-1, '商户', '我的商品 我要上架 我要下架');
-INSERT INTO `authority` VALUES (0, '学生', '我的一卡通，我的订单');
-INSERT INTO `authority` VALUES (1, '教师', '我的一卡通 审核学生申请的一卡通 我的订单');
+INSERT INTO `authority` VALUES (0, '教师', '我的一卡通 审核学生申请的一卡通 我的订单');
+INSERT INTO `authority` VALUES (1, '学生', '我的一卡通，我的订单');
 
 -- ----------------------------
 -- Table structure for card
@@ -47,15 +47,16 @@ CREATE TABLE `card`  (
   `auth_id` int(11) NOT NULL COMMENT '一卡通权限',
   `state` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '0不可用1可用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of card
 -- ----------------------------
-INSERT INTO `card` VALUES (1, '1', '546', '20170526', 0, '1');
-INSERT INTO `card` VALUES (2, '2', '5365', '20170622', 0, '0');
-INSERT INTO `card` VALUES (3, '4', '7688', '20180620', 1, '1');
-INSERT INTO `card` VALUES (4, '20180225899', '98987.9', '20180524', 0, '1');
+INSERT INTO `card` VALUES (5, '1111111', '5453', 't1', 0, '0');
+INSERT INTO `card` VALUES (12, '1', '1', 's1', 1, '0');
+INSERT INTO `card` VALUES (14, '1', '1111111111111111', 's1', 1, '0');
+INSERT INTO `card` VALUES (15, '3', '1212121', 't1', 1, '0');
+INSERT INTO `card` VALUES (16, '3', '88', 't1', 0, '1');
 
 -- ----------------------------
 -- Table structure for goods
@@ -78,18 +79,16 @@ CREATE TABLE `goods`  (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (1, '1', '1', '1', '1', '1', '1', '1', '1', '0', '5');
-INSERT INTO `goods` VALUES (2, '2', '2', '2', '2', '2', '2', '2', '2', '0', '5');
-INSERT INTO `goods` VALUES (3, '3', '3', '3', '3', '3', '3', '3', '3', '1', '5');
-INSERT INTO `goods` VALUES (4, '4', '4', '4', '4', '4', '4', '4', '4', '1', '5');
+INSERT INTO `goods` VALUES (3, '3', '3', '3', '3', '3', '3', '3', '3', '0', '5');
+INSERT INTO `goods` VALUES (4, '4', '4', '4', '4', '4', '4', '4', '4', '-1', '5');
 INSERT INTO `goods` VALUES (5, '5', '5', '5', '5', '5', '5', '5', '5', '-1', '5');
-INSERT INTO `goods` VALUES (6, '6', '6', '6', '6', '6', '6', '6', '6', '-1', '5');
-INSERT INTO `goods` VALUES (7, '7', '7', '7', '7', '7', '7', '7', '7', '0', '6');
-INSERT INTO `goods` VALUES (8, '8', '8', '8', '8', '8', '8', '8', '8', '0', '6');
+INSERT INTO `goods` VALUES (6, '6', '6', '6', '6', '6', '6', '6', '6', '1', '5');
+INSERT INTO `goods` VALUES (7, '7', '7', '7', '7', '7', '7', '7', '7', '1', '6');
+INSERT INTO `goods` VALUES (8, '8', '8', '8', '8', '8', '8', '8', '8', '1', '6');
 INSERT INTO `goods` VALUES (9, '9', '9', '9', '9', '9', '9', '9', '9', '1', '6');
 INSERT INTO `goods` VALUES (10, '10', '10', '10', '10', '10', '10', '10', '10', '1', '6');
-INSERT INTO `goods` VALUES (11, '11', '11', '11', '11', '11', '11', '11', '11', '-1', '6');
-INSERT INTO `goods` VALUES (12, '12', '12', '12', '12', '12', '12', '12', '12', '-1', '6');
+INSERT INTO `goods` VALUES (11, '11', '11', '11', '11', '11', '11', '11', '11', '1', '6');
+INSERT INTO `goods` VALUES (12, '12', '12', '12', '12', '12', '12', '12', '12', '1', '6');
 
 -- ----------------------------
 -- Table structure for orders
@@ -104,11 +103,16 @@ CREATE TABLE `orders`  (
 -- Records of orders
 -- ----------------------------
 INSERT INTO `orders` VALUES ('1', 1);
-INSERT INTO `orders` VALUES ('2', 2);
+INSERT INTO `orders` VALUES ('3', 1);
+INSERT INTO `orders` VALUES ('3', 1);
 INSERT INTO `orders` VALUES ('3', 3);
-INSERT INTO `orders` VALUES ('4', 4);
-INSERT INTO `orders` VALUES ('5', 5);
-INSERT INTO `orders` VALUES ('6', 6);
+INSERT INTO `orders` VALUES ('1', 9);
+INSERT INTO `orders` VALUES ('1', 1);
+INSERT INTO `orders` VALUES ('1', 7);
+INSERT INTO `orders` VALUES ('1', 8);
+INSERT INTO `orders` VALUES ('1', 2);
+INSERT INTO `orders` VALUES ('3', 4);
+INSERT INTO `orders` VALUES ('5', 8);
 
 -- ----------------------------
 -- Table structure for shop_info

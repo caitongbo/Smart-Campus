@@ -22,6 +22,7 @@
         <div class="collapse navbar-collapse" id="navbar-gbtag">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/goods/goodsAllListB">商品管理</a></li>
+                <%--<li><a href="${pageContext.request.contextPath}/orders/businessOrder">我的订单</a></li>--%>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/shop/shopInfo">我的店铺</a></li>
                 <li class="dropdown">

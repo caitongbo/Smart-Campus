@@ -25,7 +25,7 @@ public class CardServiceImpl implements CardService {
         return cardMapper.findById(id);
     }
 
-    public void save(String uuid,String balance,String id){cardMapper.save(uuid,balance,id);}
+    public void save(String uuid,String balance,String id,Integer authId){cardMapper.save(uuid,balance,id,authId);}
 
     public List<Card> getRecord(String id){return cardMapper.findRecord(id);}
 
@@ -34,4 +34,6 @@ public class CardServiceImpl implements CardService {
     public int delete(int id) {
         return cardMapper.delete(id);
     }
+
+    public void update(String id,String balance){cardMapper.update(id,balance);}
 }

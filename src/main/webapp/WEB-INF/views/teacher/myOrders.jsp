@@ -21,11 +21,34 @@
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
     <script>
-
+        $.fn.dataTable.defaults.oLanguage = {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索：",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            },
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        };
         $(document).ready( function () {
             $('#goods').DataTable({
                     "aLengthMenu":false,
-                    "searching":false,//禁用搜索（搜索框）
+                    "searching":"搜索",//禁用搜索（搜索框）
                     "paging":false,
                     "info":false
                 }
@@ -48,27 +71,76 @@
         <table class="table" id="goods">
             <thead>
             <tr>
+                <th style="text-align: center;">商品编号</th>
                 <th style="text-align: center;">商品名称</th>
                 <th style="text-align: center;">商品价格</th>
                 <th style="text-align: center;">商品来源</th>
                 <th style="text-align: center;">商品条形码</th>
                 <th style="text-align: center;">商品分类</th>
+                <th style="text-align: center;">删除</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${requestScope.Orders}" var="Orders">
                 <tr class="text-center">
+                    <td title=${Orders.id}>${Orders.id}</td>
                     <td title=${Orders.gName}>${Orders.gName}</td>
                     <td title=${Orders.gPrice}>${Orders.gPrice}</td>
                     <td title=${Orders.gLy}>${Orders.gLy}</td>
                     <td title=${Orders.gVid}>${Orders.gVid}</td>
                     <td title=${Orders.gLabel}>${Orders.gLabel}</td>
+                    <td>
+                        <a href="#" onclick="return deleteOrder(${Orders.id})" style="text-decoration: none;" data-toggle="modal" data-target="#deleteModal">
+                            <button type="button" class="btn btn-danger" data-toggle="button"> 删除
+                            </button>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
-</body>
 
+<%--删除的模态框--%>
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 模糊框头部 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <!-- 模糊框主体 -->
+            <div class="modal-body">
+                <strong>确定要删除此订单信息吗？</strong>
+            </div>
+            <!-- 模糊框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="deleteSure btn btn-info" data-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
+<script type="text/javascript">
+    //删除的方法
+    function deleteOrder(id){
+        if(!id){
+            alert("error");
+        }else{
+            $(".deleteSure").click(function(){
+                $.ajax({
+                    url: '${pageContext.request.contextPath}/orders/delete?id='+id,
+                    type: 'POST',
+                    success: function(data){
+                        $("body").html(data);
+                    }
+                });
+            });
+        }
+    }
+</script>

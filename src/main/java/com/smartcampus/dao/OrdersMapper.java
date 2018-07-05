@@ -19,4 +19,8 @@ public interface OrdersMapper {
 
     @Delete("delete from orders where g_id=#{id}")
     int delete(@Param("id")int id);
-}
+
+    @Select("select user.id as userId, goods.id as id,goods.g_name as gName,goods.g_price as gPrice,goods.g_ly as gLy,goods.g_vid as gVid,goods.g_label as gLabel,goods.g_details as gDetails from orders,user,goods where orders.g_id = goods.id and goods.s_i_uuid=#{uuid}")
+    List<Orders> findByUuid(@Param("uuid")String uuid);
+
+    }

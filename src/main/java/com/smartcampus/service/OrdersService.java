@@ -12,4 +12,6 @@ public interface OrdersService {
 
     int delete(int id);
 
+    List<Orders> getByUuid(String uuid);
+
 }

@@ -21,11 +21,34 @@
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
     <script>
-
+        $.fn.dataTable.defaults.oLanguage = {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索：",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            },
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        };
         $(document).ready( function () {
             $('#card').DataTable({
                     "aLengthMenu":false,
-                    "searching":false,//禁用搜索（搜索框）
+                    "searching":"搜索",//禁用搜索（搜索框）
                     "paging":false,
                     "info":false
                 }
@@ -64,8 +87,8 @@
                     <td title=${card.cardVid}>${card.cardVid}</td>
                     <td title=${card.cardBalance}>${card.cardBalance}</td>
                     <td title=${card.sqId}>${card.sqId}</td>
-                    <td><c:if test="${card.authId=='0'}">学生</c:if>
-                        <c:if test="${card.authId=='1'}">教师</c:if>
+                    <td><c:if test="${card.authId=='1'}">学生</c:if>
+                        <c:if test="${card.authId=='0'}">教师</c:if>
                     </td>
                     <td><c:if test="${card.state=='1'}"><font color="green">可用</font></c:if>
                         <c:if test="${card.state=='0'}"><font color="red">不可用</font></c:if></td>
@@ -75,7 +98,7 @@
                         </button>
                     </a>
                     <a href="#" onclick="return rejectApply(${card.id})" style="text-decoration: none;" data-toggle="modal" data-target="#examineModal">
-                        <button type="button" class="btn btn-danger" data-toggle="button"> 拒绝
+                        <button type="button" class="btn btn-danger" data-toggle="button"> 回收
                         </button>
                     </a>
                     <a href="#" onclick="return deleteApply(${card.id})" style="text-decoration: none;" data-toggle="modal" data-target="#deleteModal">

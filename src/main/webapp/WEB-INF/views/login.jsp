@@ -23,17 +23,10 @@
                 <input type="text" id="id" name='id' class="form-control" placeholder="用户名" required autofocus>
                 <label for="password" class="sr-only">密码</label>
                 <input type="password" id="password" name='password' class="form-control" placeholder="密码" required>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="remember_me" name="remember-me"> 记住我
-                    </label>
-                </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-                <%--<div class="register">新用户? <a href="${pageContext.request.contextPath}/user/register">立即注册!</a></div>--%>
             </form>
         </div> <!-- /container -->
     </div>
 </div>
-<center><h10>${message}</h10></center>
 </body>
 </html>

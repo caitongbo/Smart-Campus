@@ -42,18 +42,20 @@ public class CardController {
         String cardVid = (String) httpSession.getAttribute("UserUuid");
         String sqId = (String) httpSession.getAttribute("UserId");
         String balance=request.getParameter("balance");
-         cardService.save(cardVid,balance,sqId);
+        Integer authId=1;
+         cardService.save(cardVid,balance,sqId,authId);
          model.addAttribute("message","申请已提交，请等待审核完毕后查看使用，谢谢");
         return "student/message";
     }
 
-    //学生申请一卡通
+    //教师申请一卡通
     @RequestMapping("applyT")
     public String applyT(HttpServletRequest request, HttpSession httpSession , Model model){
         String cardVid = (String) httpSession.getAttribute("UserUuid");
         String sqId = (String) httpSession.getAttribute("UserId");
         String balance=request.getParameter("balance");
-        cardService.save(cardVid,balance,sqId);
+        Integer authId=0;
+        cardService.save(cardVid,balance,sqId,authId);
         model.addAttribute("message","申请已提交，请等待审核完毕后查看使用，谢谢");
         return "teacher/message";
     }

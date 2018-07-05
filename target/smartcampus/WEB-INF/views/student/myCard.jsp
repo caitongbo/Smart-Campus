@@ -41,24 +41,27 @@
                 </div>
                 <div class="modal-body">
                     <!--数据项-->
-                    <div class="form-group form-inline">
-                        编号：<input type="text"  class="form-control" value="${Card.id}">
-                    </div>
-                    <div class="form-group form-inline">
-                        条形码：<input type="text" class="form-control" value="${Card.cardVid}">
-                    </div>
-                    <div class="form-group form-inline">
-                        余额：<input type="text" class="form-control" value="${Card.cardBalance}">
-                    </div>
-                    <div class="form-group form-inline">
-                        申请ID：<input type="text" name="state" class="form-control" value="${Card.sqId}">
-                    </div>
-                    <div class="form-group form-inline">
-                        权限：<input type="text" name="type" class="form-control" value="${Card.authId}">
-                    </div>
-                    <div class="form-group form-inline">
-                        状态：<input type="text" name="authId" class="form-control" value="${Card.state}">
-                    </div>
+                    <%--<div class="form-group form-inline">--%>
+                        <h5>编号：${Card.id}</h5>
+                    <h5>姓名：${Card.sqId}</h5>
+
+                <%--<div class="form-group form-inline">--%>
+                        <h5>条形码：${Card.cardVid}</h5>
+                <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                       <h5>账户余额：${Card.cardBalance}</h5>
+                <%--<br>--%>
+                    <%--<br>--%>
+
+                <%--<div class="form-group form-inline">--%>
+                    <%--申请ID：${Card.sqId}--%>
+                    <%--</div>/--%>
+                    <%--<div class="form-group form-inline">--%>
+                        <%--权限：<input type="text" name="type" class="form-control" value="${Card.authId}">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                        <%--状态：<input type="text" name="authId" class="form-control" value="${Card.state}">--%>
+                    <%--</div>--%>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class=" btn btn-info" data-dismiss="modal">确定</button>

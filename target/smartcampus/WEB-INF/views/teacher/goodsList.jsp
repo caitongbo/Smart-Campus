@@ -21,11 +21,35 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
+        $.fn.dataTable.defaults.oLanguage = {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索：",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            },
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        };
         $(document).ready( function () {
             $('#goods').DataTable({
                     "aLengthMenu":false,
-                    "searching":true,//禁用搜索（搜索框）
+                    "searching":"搜索",//禁用搜索（搜索框）
                     "paging":false,
                     "info":false
                 }
@@ -42,7 +66,7 @@
 <body>
 <!-- 导航栏 -->
 <%@ include file="header.jsp"%>
-<br/>
+
 <div class="container">
     <div class="table-responsive">
         <table class="table" id="goods">
@@ -72,7 +96,7 @@
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
                     <td title=${goods.gLabel}>${goods.gLabel}</td>
                     <td>
-                        <a href="#" onclick="return trash(${goods.id})" style="text-decoration: none;" data-toggle="modal" data-target="#trashModal">
+                        <a href="#" onclick="return trash(${goods.id},${goods.gPrice})" style="text-decoration: none;" data-toggle="modal" data-target="#trashModal">
                             <button type="button" class="btn btn-info" data-toggle="button"> 立即获得
                             </button>
                         </a>
@@ -109,27 +133,30 @@
 </div>
 </body>
 
-
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<%--<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>--%>
 <script type="text/javascript">
-<%--下单的方法--%>
-    function trash(id){
+    <%--下单的方法--%>
+    function trash(id,price){
         if(!id){
             alert("error");
         }else{
             $(".delSure").click(function(){
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/orders/produce?id='+id,
+                    url: '${pageContext.request.contextPath}/orders/produce?id='+id+'&'+'price='+price,
                     type: 'POST',
                     success: function(data){
                         $("body").html(data);
+                    },
+                    error: function(){
+                        alert("错误");
                     }
                 });
             });
         }
     }
-    //查询显示
+
+    //填充模态框数据
     function buy(id){
         if(!id){
             alert("error");
@@ -168,6 +195,5 @@
     $(".buySure").click(function(){
         $("#form_buy").submit();
     });
-
 </script>
 </html>

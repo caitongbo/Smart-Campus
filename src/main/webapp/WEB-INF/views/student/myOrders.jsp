@@ -19,24 +19,46 @@
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
-
-    <script>
-
-        $(document).ready( function () {
-            $('#goods').DataTable({
-                    "aLengthMenu":false,
-                    "searching":false,//禁用搜索（搜索框）
-                    "paging":false,
-                    "info":false
-                }
-            );
-        } );
+<script>
+    $.fn.dataTable.defaults.oLanguage = {
+    "sProcessing": "处理中...",
+    "sLengthMenu": "显示 _MENU_ 项结果",
+    "sZeroRecords": "没有匹配结果",
+    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+    "sInfoPostFix": "",
+    "sSearch": "搜索：",
+    "sUrl": "",
+    "sEmptyTable": "表中数据为空",
+    "sLoadingRecords": "载入中...",
+    "sInfoThousands": ",",
+    "oPaginate": {
+    "sFirst": "首页",
+    "sPrevious": "上页",
+    "sNext": "下页",
+    "sLast": "末页"
+    },
+    "oAria": {
+    "sSortAscending": ": 以升序排列此列",
+    "sSortDescending": ": 以降序排列此列"
+    }
+    };
+    $(document).ready( function () {
+    $('#orders').DataTable({
+    "aLengthMenu":false,
+    "searching":"搜索",//禁用搜索（搜索框）
+    "paging":false,
+    "info":false
+    }
+    );
+    } );
     </script>
     <style type="text/css">
         table{
-            word-break:keep-all;/* 不换行 */
-            white-space:nowrap;/* 不换行 */
-        }
+        word-break:keep-all;/* 不换行 */
+        white-space:nowrap;/* 不换行 */
+    }
     </style>
 </head>
 <body>
@@ -45,7 +67,7 @@
 <br/>
 <div class="container">
     <div class="table-responsive">
-        <table class="table" id="goods">
+        <table class="table" id="orders">
             <thead>
             <tr>
                 <th style="text-align: center;">商品编号</th>
