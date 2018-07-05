@@ -1,6 +1,7 @@
 package com.smartcampus.dao;
 
 import com.smartcampus.entity.Goods;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -31,4 +32,7 @@ public interface GoodsMapper {
 
     @Update("update goods set g_state=#{up} where id=#{id}")
     void setUp(@Param("id")Integer id,@Param("up")String up);
+
+    @Delete("delete from goods where id=#{id}")
+    int delete(@Param("id")int id);
 }

@@ -71,7 +71,7 @@
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
                         <td title=${goods.gLabel}>${goods.gLabel}</td>
                         <td title=${goods.gDetails}>${goods.gDetails}</td>
-                        <td title=${goods.gState}>${goods.gState}</td>
+                    <td title=已上架><font color="green">已上架</font></td>
                 </tr>
             </c:forEach>
             </tbody>

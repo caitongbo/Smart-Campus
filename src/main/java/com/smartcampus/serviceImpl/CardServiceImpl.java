@@ -24,4 +24,14 @@ public class CardServiceImpl implements CardService {
     public Card getById(String id){
         return cardMapper.findById(id);
     }
+
+    public void save(String uuid,String balance,String id){cardMapper.save(uuid,balance,id);}
+
+    public List<Card> getRecord(String id){return cardMapper.findRecord(id);}
+
+    public void getApprove(Integer id,String state){ cardMapper.setApprove(id,state);}
+
+    public int delete(int id) {
+        return cardMapper.delete(id);
+    }
 }

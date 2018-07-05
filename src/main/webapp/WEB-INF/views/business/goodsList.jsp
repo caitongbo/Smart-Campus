@@ -90,6 +90,10 @@
                             <button type="button" class="btn btn-danger" data-toggle="button"> 缺货
                             </button>
                         </a>
+                        <a href="#" onclick="return deleteGoods(${goods.id})" style="text-decoration: none;" data-toggle="modal" data-target="#deleteModal">
+                            <button type="button" class="btn btn-danger" data-toggle="button"> 删除
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
@@ -119,8 +123,33 @@
         </div>
     </div>
 </div>
+
+<%--删除的模态框--%>
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 模糊框头部 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <!-- 模糊框主体 -->
+            <div class="modal-body">
+                <strong>确定要删除此商品吗？</strong>
+            </div>
+            <!-- 模糊框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="deleteSure btn btn-info" data-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+
 <script type="text/javascript">
     function up(id){
         if(!id){
@@ -137,6 +166,7 @@
             });
         }
     }
+
     function down(id){
         if(!id){
             alert("error");
@@ -152,6 +182,7 @@
             });
         }
     }
+
     function lose(id){
         if(!id){
             alert("error");
@@ -159,6 +190,23 @@
             $(".delSure").click(function(){
                 $.ajax({
                     url: '${pageContext.request.contextPath}/goods/lose?id='+id,
+                    type: 'POST',
+                    success: function(data){
+                        $("body").html(data);
+                    }
+                });
+            });
+        }
+    }
+
+    //删除的方法
+    function deleteGoods(id){
+        if(!id){
+            alert("error");
+        }else{
+            $(".deleteSure").click(function(){
+                $.ajax({
+                    url: '${pageContext.request.contextPath}/goods/delete?id='+id,
                     type: 'POST',
                     success: function(data){
                         $("body").html(data);

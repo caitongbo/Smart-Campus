@@ -20,6 +20,7 @@ public class GoodsServiceImpl implements GoodsService {
     public Goods getById(Integer id){return goodsMapper.findById(id);}
 
     public void getUp(Integer id,String up){ goodsMapper.setUp(id,up);}
+
     public List<Goods> getAllById(String id) {
         return goodsMapper.findAllById(id);
     }
@@ -34,5 +35,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     public List<Goods> getHasOverById(String id) {
         return goodsMapper.findHasOverById(id);
+    }
+
+    public int delete(int id) {
+        return goodsMapper.delete(id);
     }
 }

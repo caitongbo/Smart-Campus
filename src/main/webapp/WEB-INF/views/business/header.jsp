@@ -29,7 +29,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="${pageContext.request.contextPath}/goods/goodsHasUp">已上架商品</a></li>
                         <li><a href="${pageContext.request.contextPath}/goods/goodsHasDown">已下架商品</a></li>
-                        <li><a href="${pageContext.request.contextPath}/goods/goodsHasOver">已缺货商品</a></li>
+                        <li><a href="${pageContext.request.contextPath}/goods/goodsHasOver">缺货商品</a></li>
                     </ul>
                 </li>
                 <li><a href="#" onclick="javascript:window.location.reload()">刷新</a></li>

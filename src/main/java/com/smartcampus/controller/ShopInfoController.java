@@ -27,7 +27,6 @@ public class ShopInfoController {
         ShopInfo shopInfo = shopInfoService.getNameAndAddrById(id); //调用业务层方法
         httpSession.setAttribute("ShopInfo",shopInfo);
         model.addAttribute("shopNameAndAddr",shopInfo);//把从数据库取到的数据放入到model中
-//        System.out.println(shopInfo);
         return "business/shopInfo";
     }
 

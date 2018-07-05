@@ -11,6 +11,7 @@ public interface GoodsService {
     Goods getById(Integer id);
 
     void  getUp(Integer id,String up);
+
     List<Goods> getAllById(String id);
 
     List<Goods> getHasUpById(String id);
@@ -18,5 +19,7 @@ public interface GoodsService {
     List<Goods> getHasDownById(String id);
 
     List<Goods> getHasOverById(String id);
+
+    int delete(int id);
 
 }

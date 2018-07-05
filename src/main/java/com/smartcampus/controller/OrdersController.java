@@ -47,15 +47,44 @@ public class OrdersController {
     }
 
 
-    //产生订单
+    //学生产生订单
     @RequestMapping(value="/produce")
-    public String delete(@RequestParam int id,@RequestParam(value = "uuid",required = false)String uuid,HttpSession httpSession,Model model){
+    public String produce(@RequestParam int id,@RequestParam(value = "uuid",required = false)String uuid,HttpSession httpSession,Model model){
         Integer goodsId =Integer.valueOf(id);
         httpSession.getAttribute("GoodsId");
-        System.out.printf("111111111"+ (String) httpSession.getAttribute("GoodsId"));
         uuid = (String)httpSession.getAttribute("UserUuid");
         ordersService.save(uuid,goodsId);
         model.addAttribute("message","恭喜,您已下单完成，请等待配送！");
         return "student/message";
     }
+
+//    //教师产生订单
+//    @RequestMapping(value="/produceT")
+//    public String produceT(@RequestParam int id,@RequestParam(value = "uuid",required = false)String uuid,HttpSession httpSession,Model model){
+//        Integer goodsId =Integer.valueOf(id);
+//        httpSession.getAttribute("GoodsId");
+//        uuid = (String)httpSession.getAttribute("UserUuid");
+//        ordersService.save(uuid,goodsId);
+//        model.addAttribute("message","恭喜,您已下单完成，请等待配送！");
+//        return "teacher/message";
+//    }
+
+    //学生删除订单
+    @RequestMapping("delete")
+    public String delete(@RequestParam int id,Model model){
+        System.out.println(id);
+        Integer cardId = Integer.valueOf(id);
+        ordersService.delete(cardId);
+        model.addAttribute("message","已删除");
+        return "student/message";
+    }
+//    //老师删除订单
+//    @RequestMapping("deleteT")
+//    public String deleteT(@RequestParam int id,Model model){
+//        Integer cardId = Integer.valueOf(id);
+//        ordersService.delete(cardId);
+//        model.addAttribute("message","已删除");
+//        return "teacher/message";
+//    }
+
 }

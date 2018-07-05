@@ -19,4 +19,8 @@ public class OrdersServiceImpl implements OrdersService {
     public List<Orders> getById(String id) {
         return ordersMapper.findById(id);
     }
+
+    public int delete(int id) {
+        return ordersMapper.delete(id);
+    }
 }

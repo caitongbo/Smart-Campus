@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: SAMSUNG
-  Date: 2018/6/26
-  Time: 9:11
+  Date: 2018/7/5
+  Time: 9:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
@@ -45,40 +45,43 @@
 <br/>
 <div class="container">
     <div class="table-responsive">
-        <table class="table" id="goods">
+        <table class="table" id="cards">
             <thead>
             <tr>
-                <th style="text-align: center;">商品编号</th>
-                <th style="text-align: center;">商品名称</th>
-                <th style="text-align: center;">商品价格</th>
-                <th style="text-align: center;">商品来源</th>
-                <th style="text-align: center;">商品条形码</th>
-                <th style="text-align: center;">商品分类</th>
-                <th style="text-align: center;">删除</th>
+                <th style="text-align: center;">编号</th>
+                <th style="text-align: center;">条形码</th>
+                <th style="text-align: center;">余额</th>
+                <th style="text-align: center;">申请ID</th>
+                <%--<th style="text-align: center;">权限</th>--%>
+                <th style="text-align: center;">状态</th>
+                <th style="text-align: center;">操作</th>
+
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${requestScope.Orders}" var="Orders">
-            <tr class="text-center">
-                <td title=${Orders.id}>${Orders.id}</td>
-                <td title=${Orders.gName}>${Orders.gName}</td>
-                <td title=${Orders.gPrice}>${Orders.gPrice}</td>
-                <td title=${Orders.gLy}>${Orders.gLy}</td>
-                <td title=${Orders.gVid}>${Orders.gVid}</td>
-                <td title=${Orders.gLabel}>${Orders.gLabel}</td>
-                <td>
-                    <a href="#" onclick="return deleteOrder(${Orders.id})" style="text-decoration: none;" data-toggle="modal" data-target="#deleteModal">
-                        <button type="button" class="btn btn-danger" data-toggle="button"> 删除
-                        </button>
-                    </a>
-                </td>
-            </tr>
+            <c:forEach items="${requestScope.cards}" var="card">
+                <tr class="text-center">
+                    <td title=${card.id}>${card.id}</td>
+                    <td title=${card.cardVid}>${card.cardVid}</td>
+                    <td title=${card.cardBalance}>${card.cardBalance}</td>
+                    <td title=${card.sqId}>${card.sqId}</td>
+                    <%--<td title=${card.authId}><c:if test="${card.authId='0'}">学生</c:if>--%>
+                        <%--<font color="red"> <c:if test="${card.authId=='1'}">教师</c:if></font></td>--%>
+                    <td title=${card.state}>
+                        <font color="red"> <c:if test="${card.state=='0'}">不可用</c:if></font>
+                        <font color="green"><c:if test="${card.state=='1'}">可用</c:if></font></td>
+                    <td>
+                        <a href="#" onclick="return deleteApply(${card.id})" style="text-decoration: none;" data-toggle="modal" data-target="#deleteModal">
+                            <button type="button" class="btn btn-danger" data-toggle="button"> 删除
+                            </button>
+                        </a>
+                    </td>
+                </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
-
 <%--删除的模态框--%>
 <div class="modal fade" id="deleteModal">
     <div class="modal-dialog">
@@ -91,11 +94,11 @@
             </div>
             <!-- 模糊框主体 -->
             <div class="modal-body">
-                <strong>确定要删除此订单信息吗？</strong>
+                <strong>确定要删除此申请吗？</strong>
             </div>
             <!-- 模糊框底部 -->
             <div class="modal-footer">
-                <button type="button" class="deleteSure btn btn-info" data-dismiss="modal">确定</button>
+                <button type="button" class="changeSure btn btn-info" data-dismiss="modal">确定</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
             </div>
         </div>
@@ -105,13 +108,13 @@
 </html>
 <script type="text/javascript">
     //删除的方法
-    function deleteOrder(id){
+    function deleteApply(id){
         if(!id){
             alert("error");
         }else{
-            $(".deleteSure").click(function(){
+            $(".changeSure").click(function(){
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/orders/delete?id='+id,
+                    url: '${pageContext.request.contextPath}/card/delete?id='+id,
                     type: 'POST',
                     success: function(data){
                         $("body").html(data);
@@ -121,3 +124,4 @@
         }
     }
 </script>
+

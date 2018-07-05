@@ -111,6 +111,14 @@ public class GoodsController {
         model.addAttribute("goodses",goodses);//把从数据库取到的数据放入到model中
         return "business/goodsHasOver";
     }
+    //删除商品
+    @RequestMapping("delete")
+    public String delete(@RequestParam int id,Model model){
+        Integer cardId = Integer.valueOf(id);
+        goodsService.delete(cardId);
+        model.addAttribute("message","已删除");
+        return "business/message";
+    }
 
 
     //返回json

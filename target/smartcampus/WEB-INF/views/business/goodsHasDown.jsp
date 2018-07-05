@@ -70,7 +70,7 @@
                         <%--<td title=${goods.gSImg}>${goods.gSImg}</td>--%>
                         <td title=${goods.gLabel}>${goods.gLabel}</td>
                         <td title=${goods.gDetails}>${goods.gDetails}</td>
-                        <td title=${goods.gState}>${goods.gState}</td>
+                    <td title=已下架><font color="red">已下架</font></td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -9,4 +9,7 @@ public interface OrdersService {
     List<Orders> getById(String id);
 
     void save(String uuid, Integer id);
+
+    int delete(int id);
+
 }
