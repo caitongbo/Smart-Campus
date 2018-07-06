@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="smartcampus:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="smartcampus.war">
-      <element id="artifact" artifact-name="smartcampus:war exploded" />
-    </root>
-  </artifact>
-</component>
