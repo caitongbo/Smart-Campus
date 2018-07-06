@@ -1,0 +1,82 @@
+5个怎么划分：
+3个做WEB端，2个做Android端
+WEB端：1人写WEB前端，2个人分模块写业务组件、dao、service、controller、实体类
+android端：2个人分模块写
+
+项目名称：智慧校园
+模块总体划分：一卡通管理、商品管理、商户管理
+
+数据传输使用JSON格式，接口restful风格，IP端口统一配置（外部资源文件）
+
+接口定义规范：
+包含接口请求地址，接口参数（参数名、类型、必选、描述），
+JSON格式包含 code,msg,data (code : 0成功，-1失败 ，msg：失败信息，data:数据JSON)
+ 
+商家表 shop_info
+表字段：
+uuid varchar(32) 主键  --自动生成UUID
+shop_name varchar(16) 不为空   --商家名
+show_addr varchar(50) 不为空 --商家地址
+state char(1) 不为空 --是否可用 0不可用 1可用
+
+商品表goods
+表字段：
+id int 自增
+g_name varchar(100) 不为空 --商品名
+g_price varchar(100) 不为空 --商品价格
+g_ly varchar(100) 不为空--商品来源
+g_vid varchar(100) 不为空 -- 条形码
+g_img varchar(100) 可空 -- 商品图片
+g_simg varchar(100) 可空 --商品缩略图
+g_label varchar(200) 可空 --商品描述
+g_details varchar(500) 可空 -- 商品详情
+g_state char(1) 不为空 --商品状态 1上架 0下架 -1缺货
+s_i_uuid varchar(32) 不为空 -- 商家表ID
+金额
+
+一卡通 card
+表字段：
+id  int 自增
+card_vid varchar(32) 不为空--一卡通编号
+card_balance varchar(100) 不为空--一卡通余额	
+sq_id varchar(10) 不为空--申请ID
+auth_id int 不为空--一卡通权限
+state char(1) 不为空 --0不可用1可用
+余额
+
+用户表 user
+uuid varchar(32) 主键  --自动生成UUID
+id varchar() 不为空 --学号/教师账号 系统生成
+password varchar(50) 可空 --密码，手机登录无需密码
+state char(1) 不为空--是否可用，0不可用，1可用
+type char(1) 不为空 --0邮箱，1手机，2帐号
+auth_id int 不为空--用户权限
+shop_type char(1) 不为空 --0普通用户 1商家 
+
+权限表 authority
+id int 自增
+au_name varchar(50) 可空 --权限名，比如老师、学生、商户
+au_details varchar(200) 可空--权限职能描述
+
+订单表 order
+user_uuid varchar(32) 主键 --用户ID
+g_id int  不为空 --商品ID
+
+------------------------------------华丽分割线--------------------------------------------
+后期bug检查及解决，感谢卢同学的帮助，特别谢谢~
+**登录界面最下面那行“你输入的用户名或密码有误”有什么用处吗    【已删除】
+**学生申请一卡通，等老师审核通过以后才可以购买商品，无卡时点购买建议可以用弹框显示“您还没有一卡通，无法购买”【功能已实现，bug是没一卡通申请时点击下单无错误提醒】
+**学生没有一卡通时，已购买商品列表里应该是空的【已清空goods表】
+**每个老师和学生都只能有一张卡，且卡的信息不可以修改 【通过设置card表sq_id字段属性为unique解决】
+**老师批准完之后应该返回上一个申请记录的页面 【暂时无法解决，需要异步刷新实现】
+**学生卡里的原始金额最好是固定的，这是老师的权限，学生不可以修改原始金额【上述第四个操作同时解决】
+**有时间的话可以加一下购买过程中金额的变化，让购买的过程更具体，当卡里余额为0时可以显示“余额不足请充值”，来不及的话就不做了吧【已实现】
+
+
+
+
+
+
+
+
+
