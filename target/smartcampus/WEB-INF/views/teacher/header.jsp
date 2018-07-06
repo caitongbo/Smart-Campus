@@ -28,10 +28,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">一卡通<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="${pageContext.request.contextPath}/card/myCardT">我的一卡通</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#applyModal">申请新卡</a></li>
-                        <li><a href="${pageContext.request.contextPath}/card/recordT">申请纪录</a></li>
-                        <li><a href="${pageContext.request.contextPath}/card/cardList">一卡通管理列表</a></li>
-                        <li><a href="${pageContext.request.contextPath}/card/unavailable">查看不可用列表</a></li>
+                        <%--<li><a href="#" data-toggle="modal" data-target="#applyModal">申请/新卡</a></li>--%>
+                        <li><a href="${pageContext.request.contextPath}/card/recordT">我的卡片状态</a></li>
+                        <li><a href="${pageContext.request.contextPath}/card/cardList">一卡通审核管理</a></li>
+                        <%--<li><a href="${pageContext.request.contextPath}/card/unavailable">不可用列表</a></li>--%>
                     </ul>
                 </li>
                 <li><a href="#" onclick="javascript:window.location.reload()">刷新</a></li>
@@ -45,51 +45,6 @@
     </div>
 </nav>
 
-<form action="${pageContext.request.contextPath}/card/applyT" method="post" id="form_apply">
-    <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;
-                        <span aria-hidden="true"></span>
-                    </button>
-                    <h4 class="modal-title" >申请一卡通</h4>
-                </div>
-                <div class="modal-body">
-                    <!--数据项-->
-                    <div class="form-group form-inline">
-                        UUID：<input type="text" name="uuid" class="form-control" value="${user.uuid}">
-                    </div>
-                    <div class="form-group form-inline">
-                        账号：<input type="text" name="id" class="form-control" value="${user.id}">
-                    </div>
-                    <div class="form-group form-inline">
-                        金额：<input type="text" name="balance" class="form-control" >
-                    </div>
-                    <%--<div class="form-group form-inline">--%>
-                    <%--密码：<input type="text" name="password" class="form-control" value="${user.password}">--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group form-inline">--%>
-                    <%--状态：<input type="text" name="state" class="form-control" value="${user.state}">--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group form-inline">--%>
-                    <%--账号类型：<input type="text" name="type" class="form-control" value="${user.type}">--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group form-inline">--%>
-                    <%--权限：<input type="text" name="authId" class="form-control" value="${user.authId}">--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group form-inline">--%>
-                    <%--类型：<input type="text" name="shopType" class="form-control" value="${user.shopType}">--%>
-                    <%--</div>--%>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="applySure btn btn-info" data-dismiss="modal">确定</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -154,10 +109,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    //提交表单的方法
-    $(".applySure").click(function(){
-        $("#form_apply").submit();
-    });
-</script>

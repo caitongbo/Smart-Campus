@@ -117,7 +117,7 @@
             </div>
             <!-- 模糊框主体 -->
             <div class="modal-body">
-                <strong>确定要删除此申请吗？</strong>
+                <strong>删除此申请将一并退回原有一卡通，此后您可以继续申请新卡，确定要删除吗？</strong>
             </div>
             <!-- 模糊框底部 -->
             <div class="modal-footer">

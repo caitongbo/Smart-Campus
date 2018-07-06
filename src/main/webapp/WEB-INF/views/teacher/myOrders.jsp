@@ -77,7 +77,7 @@
                 <th style="text-align: center;">商品来源</th>
                 <th style="text-align: center;">商品条形码</th>
                 <th style="text-align: center;">商品分类</th>
-                <th style="text-align: center;">删除</th>
+                <th style="text-align: center;">操作</th>
             </tr>
             </thead>
             <tbody>

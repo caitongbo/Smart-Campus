@@ -50,7 +50,9 @@
                     <%--</div>--%>
                     <%--<div class="form-group form-inline">--%>
                     <h5>账户余额：${Card.cardBalance}</h5>
-                    <%--<br>--%>
+
+                    <a href="#" data-toggle="modal" data-target="#applyModal" data-dismiss="modal" style="float: right">还没有卡？点击申领</a>
+                    <br>
                     <%--<br>--%>
 
                     <%--<div class="form-group form-inline">--%>
@@ -71,6 +73,58 @@
         </div>
     </div>
 </div>
+
+<form action="${pageContext.request.contextPath}/card/applyS" method="post" id="form_apply">
+    <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;
+                        <span aria-hidden="true"></span>
+                    </button>
+                    <h4 class="modal-title" >申请一卡通</h4>
+                </div>
+                <div class="modal-body">
+                    <!--数据项-->
+                    <div class="form-group form-inline">
+                        UUID：<input type="text" name="uuid" class="form-control" value="${user.uuid}">
+                    </div>
+                    <div class="form-group form-inline">
+                        账号：<input type="text" name="id" class="form-control" value="${user.id}">
+                    </div>
+                    <div class="form-group form-inline">
+                        金额：<input type="text" name="balance" class="form-control" >
+                    </div>
+                    <%--<div class="form-group form-inline">--%>
+                    <%--密码：<input type="text" name="password" class="form-control" value="${user.password}">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                    <%--状态：<input type="text" name="state" class="form-control" value="${user.state}">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                    <%--账号类型：<input type="text" name="type" class="form-control" value="${user.type}">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                    <%--权限：<input type="text" name="authId" class="form-control" value="${user.authId}">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-inline">--%>
+                    <%--类型：<input type="text" name="shopType" class="form-control" value="${user.shopType}">--%>
+                    <%--</div>--%>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="applySure btn btn-info" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 </html>
 
+<script>
+    //提交表单的方法
+    $(".applySure").click(function(){
+        $("#form_apply").submit();
+    });
+</script>

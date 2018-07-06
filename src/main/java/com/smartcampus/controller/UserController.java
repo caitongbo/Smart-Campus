@@ -35,7 +35,7 @@ public class UserController {
                 httpSession.setAttribute("UserId", user.getId());
                 httpSession.setAttribute("UserUuid", user.getUuid());
                 model.addAttribute("message", user.getId());
-                if ("0".equals(user.getShopType())) {
+                if ("1".equals(user.getShopType())) {
                     return "student/main";
                 } else if ("-1".equals(user.getShopType())) return "business/main";
                 else return "teacher/main";
